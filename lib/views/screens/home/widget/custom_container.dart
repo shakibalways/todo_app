@@ -23,7 +23,14 @@ class CustomContainer extends StatelessWidget {
         child: Row(
           children: [
             Checkbox(value: discreption, onChanged: onChanged),
-            Text(title),
+            Text(
+              title,
+              style: TextStyle(
+                  fontSize: 20,
+                  decoration: discreption
+                      ? TextDecoration.lineThrough
+                      : TextDecoration.none),
+            ),
           ],
         ));
   }
