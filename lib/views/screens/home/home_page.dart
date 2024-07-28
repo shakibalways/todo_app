@@ -13,37 +13,37 @@ class _HomePageState extends State<HomePage> {
     'Yes It is work',false,
     'No It is Not Work',false,
   ];
-  void checkBoxChanged(bool value, int index){
-    
-
-  }
-
+bool isChecked =false;
   @override
   Widget build(BuildContext context) {
-    bool value =true;
     return Scaffold(
-      backgroundColor: Colors.deepPurple,
-      appBar: AppBar(
         backgroundColor: Colors.deepPurple,
-        title: const Text(
-          'TO DO',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+        appBar: AppBar(
+          backgroundColor: Colors.deepPurple,
+          title: const Text(
+            'TO DO',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
+          ),
+          centerTitle: true,
         ),
-        centerTitle: true,
-      ),
-      body: ListView.builder(
-        itemCount: todoList.length,
-        itemBuilder: (c,i){
-          return CustomContainer(
-            title: todoList[i],
-            value: todoList[i],
-            onChanged: (v){
-            },
+        body: ListView.builder(
+          itemCount: todoList.length,
+         itemBuilder: (context,index){
+          return Padding(
+            padding: const EdgeInsets.all(10),
+            child: CustomContainer(
+               title: "Your Work Is Ready",
+               discreption: isChecked,
+               onChanged: (bool? newValue) {
+                 isChecked = newValue!;
+               },
+             ),
           );
-        },
+         }
 
-      ),
+
+        )
     );
   }
 }
