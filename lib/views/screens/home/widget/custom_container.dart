@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -17,7 +18,7 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Slidable(
       endActionPane: ActionPane(
-        motion: StretchMotion(),
+        motion: const StretchMotion(),
         children: [
           SlidableAction(onPressed:onPressed ,
           icon: Icons.delete,
@@ -27,7 +28,7 @@ class CustomContainer extends StatelessWidget {
         ],
       ),
       child: Container(
-          height: 140,
+          height: 120,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: Colors.yellow,
@@ -36,13 +37,18 @@ class CustomContainer extends StatelessWidget {
           child: Row(
             children: [
               Checkbox(value: discreption, onChanged: onChanged),
-              Text(
-                title,
-                style: TextStyle(
-                    fontSize: 20,
-                    decoration: discreption
-                        ? TextDecoration.lineThrough
-                        : TextDecoration.none),
+              Expanded(
+                child: Text(
+                
+                  title,
+
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontSize: 20,
+                      decoration: discreption
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none),
+                ),
               ),
             ],
           )),

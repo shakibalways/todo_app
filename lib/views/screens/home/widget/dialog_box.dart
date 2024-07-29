@@ -19,8 +19,10 @@ class DialogBox extends StatelessWidget {
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
       backgroundColor: Colors.yellow,
       content: Container(
-        height: 120,
+        height: 180,
+        width: 250,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextField(
               controller: controller,
