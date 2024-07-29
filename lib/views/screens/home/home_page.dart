@@ -28,6 +28,13 @@ class _HomePageState extends State<HomePage> {
     }
    Navigator.of(context).pop();
   }
+  //delete task
+  void deleteTask(int index){
+    setState(() {
+      todoList.removeAt(index);
+
+    });
+  }
 
 
   @override
@@ -75,6 +82,10 @@ class _HomePageState extends State<HomePage> {
                   .isDone , // You might want to format this to be a string
               onChanged: (value) {
                 checkBoxChanged(value, index);
+              },
+              onPressed:  (context){
+                deleteTask(index);
+
               },
             ),
           );
